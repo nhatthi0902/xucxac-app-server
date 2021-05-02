@@ -1,5 +1,6 @@
 const express = require('express')()
 const server = require('http').Server(express)
+const PORT = process.env.PORT || 5000
 const io = require('socket.io')(server, {
   cors: {
     origin: '*',
@@ -14,8 +15,8 @@ let room = {
   partnerName: '',
 }
 
-server.listen(process.env.PORT || 3002, () => {
-  console.log(`Listen at port ${process.env.PORT}...`)
+server.listen(PORT, () => {
+  console.log(`Listen at port ${PORT}...`)
 })
 
 io.on('connection', (socket) => {
