@@ -33,7 +33,7 @@ io.on('connection', (socket) => {
     room.partner = socket.id
     socket.emit('partner-join', room.hostName)
     io.to(`room-${room.roomId}`).emit('partner-joined')
-    console.log('PARTNER JOIN: ', room)
+    console.log('partner naming... ', room.hostName)
   })
   socket.on('setHostName', (hostName) => {
     room.hostName = hostName
