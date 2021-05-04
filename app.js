@@ -8,7 +8,7 @@ const io = require('socket.io')(server, {
 })
 
 let room = {
-  roomId: '',
+  roomId: '9999',
   host: '',
   partner: '',
   hostName: '',
@@ -22,9 +22,8 @@ server.listen(PORT, () => {
 io.on('connection', (socket) => {
   //Player join
   socket.on('host-join', () => {
-    socket.join(`room-${socket.id}`)
+    socket.join(`room-${roomId}`)
     room.host = socket.id
-    room.roomId = socket.id
     socket.emit('host-id', room.roomId)
     console.log('HOST JOIN: ', room)
   })
