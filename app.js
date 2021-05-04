@@ -40,6 +40,7 @@ io.on('connection', (socket) => {
   })
   socket.on('setPartName', (partnerName) => {
     room.partnerName = partnerName
+    console.log("partnerNameCreated: ",partnerName)
     io.to(`room-${room.roomId}`).emit('partnerNameCreated', partnerName)
   })
   socket.on('startNewGame', (newGameState) => {
